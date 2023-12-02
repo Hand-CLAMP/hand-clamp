@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # CLAMP
 
 By Xu Zhang, Wen Wang, Zhe Chen, Yufei Xu, Jing Zhang, and Dacheng Tao
@@ -75,3 +76,6 @@ If you find CLAMP useful in your research, please consider citing:
   year={2023}
 }
 ```
+=======
+# hand-clamp
+>>>>>>> origin/main
