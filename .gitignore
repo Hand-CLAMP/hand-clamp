@@ -3,7 +3,10 @@ __pycache__/
 *.py[cod]
 *$py.class
 **/*.pyc
-
+# big files
+data/
+work_dirs/
+pretrained/
 # C extensions
 *.so
 
