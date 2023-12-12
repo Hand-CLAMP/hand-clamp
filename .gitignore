@@ -3,6 +3,17 @@ __pycache__/
 *.py[cod]
 *$py.class
 **/*.pyc
+
+.config/gcloud
+.conda
+.docker
+.ipython
+.local
+.jupyter
+.bash_history
+.viminfo
+.bashrc
+
 # big files
 CLAMP/data/
 CLAMP/work_dirs/
