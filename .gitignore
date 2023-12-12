@@ -4,9 +4,12 @@ __pycache__/
 *$py.class
 **/*.pyc
 # big files
-data/
-work_dirs/
-pretrained/
+CLAMP/data/
+CLAMP/work_dirs/
+CLAMP/pretrained/
+CLAMP_hand/data/
+CLAMP_hand/work_dirs/
+CLAMP_hand/pretrained/
 # C extensions
 *.so
 
