@@ -5,16 +5,16 @@ __pycache__/
 **/*.pyc
 <<<<<<< HEAD
 =======
-.gitconfig
-.config/gcloud
-.conda
-.docker
-.ipython
-.local
-.jupyter
-.bash_history
-.viminfo
-.bashrc
+/home/jupyter/.gitconfig
+/home/jupyter/.config/gcloud
+/home/jupyter/.conda
+/home/jupyter/.docker
+/home/jupyter/.ipython
+/home/jupyter/.local
+/home/jupyter/.jupyter
+/home/jupyter/.bash_history
+/home/jupyter/.viminfo
+/home/jupyter/.bashrc
 
 >>>>>>> master
 # big files
