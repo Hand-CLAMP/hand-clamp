@@ -1,0 +1,13 @@
+{
+  "shell_port": 55969,
+  "iopub_port": 40271,
+  "stdin_port": 45905,
+  "control_port": 44765,
+  "hb_port": 37217,
+  "ip": "127.0.0.1",
+  "key": "03955a0a-07ebd601bde12fb97cd6270a",
+  "transport": "tcp",
+  "signature_scheme": "hmac-sha256",
+  "kernel_name": "conda-root-py",
+  "jupyter_session": "/home/jupyter/CLAMP_hand/data/hands/ego_images_rectified/train/nusar-2021_action_both_9014-a23_9014_user_id_2021-02-02_142800/Untitled.ipynb"
+}

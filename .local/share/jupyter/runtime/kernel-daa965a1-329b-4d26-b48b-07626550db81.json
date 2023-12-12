@@ -1,0 +1,13 @@
+{
+  "shell_port": 50465,
+  "iopub_port": 55961,
+  "stdin_port": 47153,
+  "control_port": 44745,
+  "hb_port": 50487,
+  "ip": "127.0.0.1",
+  "key": "80d83871-bbd49c3daa98f8dac5f11a49",
+  "transport": "tcp",
+  "signature_scheme": "hmac-sha256",
+  "kernel_name": "conda-root-py",
+  "jupyter_session": "/home/jupyter/CLAMP_hand/file.ipynb"
+}
