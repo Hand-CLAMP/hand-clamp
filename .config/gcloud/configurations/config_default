@@ -1,0 +1,9 @@
+[core]
+project = diesel-channel-406509
+
+[compute]
+region = asia-northeast3
+
+[dataproc]
+region = asia-northeast3
+
