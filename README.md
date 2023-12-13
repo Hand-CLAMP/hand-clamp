@@ -2,9 +2,9 @@
 
 **CLAMP** is original CLAMP project, and **CLAMP_hand** is our project based on CLAMP proejct.
 
-## Result
-
 Utilizing the CLAMP model architecture, we achieved single-hand keypoint detection with 0.442 AP(average precision) and dual-hand keypoint detection with 0.53 AP(average precision). We have shown that **accurate hand keypoints can be obtained based on images and prompts**.
+
+<img width="350" alt="image" src="https://github.com/Hand-CLAMP/hand-clamp/assets/94193480/4c6fa57c-f253-4548-b207-ff10d4d0fbda">
 
 ## **Motivation** **&** **Problem statement**
 
