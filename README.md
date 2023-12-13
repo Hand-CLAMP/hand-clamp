@@ -32,13 +32,13 @@ Utilizing the CLAMP model architecture, we achieved single-hand keypoint detecti
 ```bash
 CLMAP_hand
 ├─ data
-│		└─ hands
-│				├─ annotations
-│				└─ data
+│  └─ hands
+│      ├─ annotations
+│      └─ data
 ├─ work_dirs
-│		├─ CLAMP_ViTB_ap10k_256x256_onehand
-│		├─ CLAMP_ViTB_ap10k_256x256
-│		└─ CLAMP_ViTB_ap10k_256x256_twohands
+│   ├─ CLAMP_ViTB_ap10k_256x256_onehand
+│   ├─ CLAMP_ViTB_ap10k_256x256
+│   └─ CLAMP_ViTB_ap10k_256x256_twohands
 │
 └─ pretrained
 ```
