@@ -1,54 +1,64 @@
-<<<<<<< HEAD
-# CLAMP
+# 2D Hand Pose Estimation based on CLAMP model
 
-By Xu Zhang, Wen Wang, Zhe Chen, Yufei Xu, Jing Zhang, and Dacheng Tao
+**CLAMP** is original CLAMP project, and **CLAMP_hand** is our project based on CLAMP proejct.
 
-This repository is an official implementation of CLAMP in the paper [CLAMP: Prompt-based Contrastive Learning for Connecting Language and Animal Pose](https://arxiv.org/abs/2206.11752), which is accepted to CVPR 2023.
+## Result
 
+Utilizing the CLAMP model architecture, we achieved single-hand keypoint detection with 0.442 AP(average precision) and dual-hand keypoint detection with 0.53 AP(average precision). We have shown that **accurate hand keypoints can be obtained based on images and prompts**.
 
-## Main Results
+## **Motivation** **&** **Problem statement**
 
-Models can be downloaded from [Google Drive](https://drive.google.com/file/d/1ep5WExRnN51n1w-0mg7Lxv-1vJahcECM/view?usp=sharing)
+- Research on **hand keypoints is gaining importance** as it can be applied to various real-life scenarios such as VR games, robot hands, sign language interpretation, and text generation from sign language videos.
+- Commonly used techniques involve estimating hand gesture information through the extraction of hand skeleton features from visual data. However, these methods have limitations in accurately recognizing complex movements and can only identify specific or pre-determined hand shapes.
+- We aim to leverage the **CLAMP model** to **obtain precise hand keypoint data** based on **images and prompts**.
+- This approach seeks to enhance the accuracy of hand keypoints beyond the recognition of predetermined hand shapes, allowing for more versatile applications in different domains.
 
-## Installation
+**CLAMP Model**
 
-### Requirements
+- CLAMP model is used for **animal pose estimation** and its model **used pre-trained language model named CLIP** and it provides rich prior knowledge for describing animal keypoints in text. For example, if there are texts named nose, eyes, mouth, legs, it helps to estimate animal keypoints. Animal keypoints texts will be changed to hand keypoints texts.
 
-* Linux, CUDA>=9.2, GCC>=5.4
-  
-* Python>=3.6
-  
-* PyTorch>=1.5.0, torchvision>=0.6.0 (following instructions [here](https://pytorch.org/))
+**CLIP model**
 
-* mmcv
-    ```bash
-    cd mmcv
-    pip install -r requirements.txt
-    pip install -v -e .
-    ```
+- This model, developed by OpenAI, is an unsupervised learning model that focuses on **learning the correlation between images and text**.
+- Pre-trained on large amounts of image and text data, the model learns the relationships between images and text, making it applicable to various natural language processing and computer vision tasks.
 
-* mmpose
-    ```bash
-    cd ..
-    pip install -r requirements.txt
-    pip install -v -e .
-    ```
+**The reason we use CLAMP model**
+
+- CLAMP model is one of the **most proficient models** in identifying keypoints of animals.
+- Since the CLAMP model predicts keypoints of images based on a text prompt, We thought that by **changing the prompt to one related to hands**, it would be possible to capture the keypoints of hand images.
+
+## File Setting & Download
+
+```bash
+CLMAP_hand
+├─ data
+│		└─ hands
+│				├─ annotations
+│				└─ data
+├─ work_dirs
+│		├─ CLAMP_ViTB_ap10k_256x256_onehand
+│		├─ CLAMP_ViTB_ap10k_256x256
+│		└─ CLAMP_ViTB_ap10k_256x256_twohands
+│
+└─ pretrained
+```
+
+You can download the files that need to be placed corresponding folder here: 
+
+- CLAMP_hand/data/hands/annotations : https://drive.google.com/drive/folders/1ePzTjdMPy7Snm47I1AQrpq3GrwhSkV7I?usp=sharing
+- CLAMP_hand/data/hands/data : https://drive.google.com/drive/folders/1CZC0uRSmgHpNXFwXPBRJGcnu7NxWmO6A
+- CLAMP_hand/work_dirs/CLAMP_ViTB_ap10k_256x256_onehand : https://drive.google.com/drive/folders/1MrIAbRX7tWOdeQNdS5jE2Q11cNr6wMjY?usp=sharing
+- CLAMP_hand/work_dirs/CLAMP_ViTB_ap10k_256x256 : https://drive.google.com/drive/folders/1C2HPKCMDFfFyP9gCTL4Be3v096RW8Y0W?usp=sharing
+- CLAMP_hand/work_dirs/CLAMP_ViTB_ap10k_256x256_twohands : https://drive.google.com/drive/folders/1-2BbjSIbW70QIowjCjUInLCif8b9YCQl?usp=sharing
+- pretrained : https://huggingface.co/sentence-transformers/clip-ViT-B-16
 
 ## Usage
 
-### Dataset preparation
-
-Please download the dataset from [AP-10K](https://github.com/AlexTheBad/AP-10K).
-
-### CLIP-pretrained models
-
-Please download CLIP pretrained models from [CLIP](https://github.com/openai/CLIP).
-
 ### Training
 
-#### Training CLAMP on AP-10K
+**Training CLAMP on AP-10K**
 
-```bash
+```
 bash tools/dist_train.sh configs/animal/2d_kpt_sview_rgb_img/topdown_heatmap/ap10k/CLAMP_ViTB_ap10k_256x256.py 4 "0,1,2,3"
 ```
 
@@ -56,18 +66,19 @@ bash tools/dist_train.sh configs/animal/2d_kpt_sview_rgb_img/topdown_heatmap/ap1
 
 You can get the pretrained model (the link is in "Main Results" session), then run following command to evaluate it on the validation set:
 
-```bash
+```
 bash tools/dist_test.sh configs/animal/2d_kpt_sview_rgb_img/topdown_heatmap/ap10k/CLAMP_ViTB_ap10k_256x256.py work_dirs/CLAMP_ViTB_ap10k_256x256/epoch_210.pth 4 "0,1,2,3"
 ```
 
-## Acknowledgement 
+## Acknowledgement
 
-This project is based on [mmpose](https://github.com/open-mmlab/mmpose), [AP-10K](https://github.com/AlexTheBad/AP-10K), [CLIP](https://github.com/openai/CLIP), and [DenseCLIP](https://github.com/raoyongming/DenseCLIP). Thanks for their wonderful works. See [LICENSE](./LICENSE) for more details. 
-
+This project is based on [mmpose](https://github.com/open-mmlab/mmpose), [AP-10K](https://github.com/AlexTheBad/AP-10K), [CLIP](https://github.com/openai/CLIP), and [DenseCLIP](https://github.com/raoyongming/DenseCLIP). Thanks for their wonderful works. See [LICENSE](https://github.com/Hand-CLAMP/hand-clamp/blob/main/LICENSE) for more details.
 
 ## Citing CLAMP
+
 If you find CLAMP useful in your research, please consider citing:
-```bibtex
+
+```bash
 @inproceedings{zhang2023clamp,
   title={CLAMP: Prompt-Based Contrastive Learning for Connecting Language and Animal Pose},
   author={Zhang, Xu and Wang, Wen and Chen, Zhe and Xu, Yufei and Zhang, Jing and Tao, Dacheng},
@@ -76,6 +87,3 @@ If you find CLAMP useful in your research, please consider citing:
   year={2023}
 }
 ```
-=======
-# hand-clamp
->>>>>>> origin/main
